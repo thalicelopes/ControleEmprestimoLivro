@@ -1,14 +1,13 @@
 ﻿using ControleEmprestimoLivro.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ControleEmprestimoLivro.Data
 {
     public partial class LivrariaEmprestimoDbContext : DbContext
     {
+        public LivrariaEmprestimoDbContext()
+        {
+        }
         public LivrariaEmprestimoDbContext(DbContextOptions<LivrariaEmprestimoDbContext> options)
             : base(options)
         { }

@@ -16,6 +16,8 @@ namespace ControleEmprestimoLivro.Models
         public string Autor { get; set; }
         [Required(ErrorMessage = "Informe a editora responsável pelo livro. ")]
         public string Editora { get; set; }
+        [Required(ErrorMessage = "Informe o ano de publicação do livro. ")]
+        public DateTime AnoPublicacao { get; set; }
         public virtual ICollection<Livro_Cliente> LivroCliente { get; set; }
     }
 }

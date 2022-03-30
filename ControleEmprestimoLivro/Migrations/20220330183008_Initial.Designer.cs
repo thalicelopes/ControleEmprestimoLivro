@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleEmprestimoLivro.Migrations
 {
     [DbContext(typeof(LivrariaEmprestimoDbContext))]
-    [Migration("20220329164355_Initial")]
+    [Migration("20220330183008_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,6 +49,10 @@ namespace ControleEmprestimoLivro.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Cliente");
@@ -60,6 +64,9 @@ namespace ControleEmprestimoLivro.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<DateTime>("AnoPublicacao")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Autor")
                         .IsRequired()
@@ -90,6 +97,9 @@ namespace ControleEmprestimoLivro.Migrations
 
                     b.Property<DateTime>("DataEmprestimo")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("Entregue")
+                        .HasColumnType("bit");
 
                     b.Property<int>("IdCliente")
                         .HasColumnType("int");

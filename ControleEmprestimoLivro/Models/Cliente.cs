@@ -21,6 +21,8 @@ namespace ControleEmprestimoLivro.Models
         public string Cidade { get; set; }
         [Required(ErrorMessage = "Informe o bairro do cliente. ")]
         public string Bairro { get; set; }
+        [Required(ErrorMessage = "Informe o telefone do cliente. ")]
+        public string Telefone { get; set; }
         public virtual ICollection<Livro_Cliente> LivroCliente { get; set; }
     }
 }

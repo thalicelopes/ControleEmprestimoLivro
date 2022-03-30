@@ -17,7 +17,8 @@ namespace ControleEmprestimoLivro.Migrations
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Endereco = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cidade = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +33,8 @@ namespace ControleEmprestimoLivro.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NomeLivro = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Editora = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Editora = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AnoPublicacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,7 +50,8 @@ namespace ControleEmprestimoLivro.Migrations
                     IdLivro = table.Column<int>(type: "int", nullable: false),
                     IdCliente = table.Column<int>(type: "int", nullable: false),
                     DataEmprestimo = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DataDevolucao = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Entregue = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

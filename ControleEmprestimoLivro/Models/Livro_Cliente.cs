@@ -15,6 +15,7 @@ namespace ControleEmprestimoLivro.Models
         public int IdCliente { get; set; }
         public DateTime DataEmprestimo { get; set; }
         public DateTime DataDevolucao { get; set; }
+        public bool Entregue { get; set; }
         [ForeignKey(nameof(IdLivro))]
         public virtual Livro Livro { get; set; }
         [ForeignKey(nameof(IdCliente))]
