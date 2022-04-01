@@ -8,10 +8,6 @@ namespace ControleEmprestimoLivro.Services
 {
     public class ClienteService
     {
-        public RepositoryCliente oRepositoryCliente { get; set; }
-        public ClienteService()
-        {
-            oRepositoryCliente = new RepositoryCliente();
-        }
+        public RepositoryCliente oRepositoryCliente { get; set; } = new RepositoryCliente();
     }
 }

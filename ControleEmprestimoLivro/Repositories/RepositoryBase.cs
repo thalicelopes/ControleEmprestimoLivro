@@ -3,6 +3,7 @@ using ControleEmprestimoLivro.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,17 +11,24 @@ namespace ControleEmprestimoLivro.Repositories
 {
     public class RepositoryBase<T> : IRepositoryModel<T>, IDisposable where T : class
     {
-        protected LivrariaEmprestimoDbContext _Contexto = new LivrariaEmprestimoDbContext();
+        private readonly LivrariaEmprestimoDbContext _Contexto;
         public bool _SaveChanges = true;
+        private bool saveChanges;
 
-        public RepositoryBase(/*LivrariaEmprestimoDbContext _context, */bool saveChanges = true)
+        public RepositoryBase(bool saveChanges)
+        {
+            this.saveChanges = saveChanges;
+        }
+
+        public RepositoryBase(LivrariaEmprestimoDbContext _context, bool saveChanges = true)
         {
             _SaveChanges = saveChanges;
-            //_Contexto = _context;
+            _Contexto = _context;
         }
+
         public T Alterar(T objeto)
         {
-            _Contexto.Entry(objeto).State = EntityState.Modified;
+            _Contexto.Entry(objeto).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             if (_SaveChanges)
             {
                 _Contexto.SaveChanges();
